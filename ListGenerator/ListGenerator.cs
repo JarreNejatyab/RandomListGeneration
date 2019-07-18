@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace RandomList
 {
@@ -22,6 +23,9 @@ namespace RandomList
         /// <returns></returns>
         public List<int> Generate(int min, int max)
         {
+            if (min > max)
+                throw new ArgumentOutOfRangeException($"min must be lower than max");
+
             var list = new List<int>();
 
             GetList(list,min,max);
