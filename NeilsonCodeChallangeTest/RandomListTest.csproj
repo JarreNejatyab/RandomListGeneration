@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NeilsonCodeChallangeJarre\NeilsonCodeChallangeJarre.csproj" />
+    <ProjectReference Include="..\NeilsonCodeChallangeJarre\RandomList.csproj" />
   </ItemGroup>
 
 </Project>

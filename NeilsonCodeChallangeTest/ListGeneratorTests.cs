@@ -1,10 +1,10 @@
 using System;
 using System.Linq;
 using Moq;
-using NeilsonCodeChallangeJarre;
 using NUnit.Framework;
+using RandomList;
 
-namespace NeilsonCodeChallangeTest
+namespace RandomListTest
 {
     public class Tests
     {

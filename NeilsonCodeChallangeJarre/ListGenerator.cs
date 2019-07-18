@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NeilsonCodeChallangeJarre
+namespace RandomList
 {
     /// <summary>
     /// represents a list generator
