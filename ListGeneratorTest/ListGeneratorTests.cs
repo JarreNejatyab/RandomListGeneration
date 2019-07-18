@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Moq;
 using NUnit.Framework;
@@ -8,13 +9,13 @@ namespace RandomListTest
 {
     public class Tests
     {
-        [Test]
-        public void ListGenerationTest()
+        [TestCase(1, 10, false)]
+        [TestCase(1, 52, false)]
+        [TestCase(1, 10, true)]
+        [TestCase(1, 52, true)]
+        public void ListGenerationTest_not_sorted(int min, int max, bool sorted)
         {
             //setup
-            const int min = 1;
-            const int max = 52;
-
             var random = new Mock<IRandom>();
 
             random.Setup(random1 => random1.Random(It.IsAny<int>(), It.IsAny<int>()))
@@ -26,7 +27,7 @@ namespace RandomListTest
 
             //act
             var sut = new ListGenerator(random.Object);
-            var result = sut.Generate(min, max);
+            var result = sut.Generate(min, max, sorted);
 
             //asserting efficiency of the algorithm 
             random.Verify(random1 => random1.Random(It.IsAny<int>(), It.IsAny<int>()), Times
@@ -39,6 +40,9 @@ namespace RandomListTest
 
             Assert.AreEqual(result.Min(), min);
             Assert.AreEqual(result.Max(), max);
+
+            if (sorted)
+                Assert.True(result.SequenceEqual(new List<int>(result.OrderBy(i => i))));
         }
     }
 }
