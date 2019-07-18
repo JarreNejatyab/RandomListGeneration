@@ -2,6 +2,9 @@
 
 namespace NeilsonCodeChallangeJarre
 {
+    /// <summary>
+    /// represents a list generator
+    /// </summary>
     public class ListGenerator
     {
         private readonly IRandom _random;
@@ -11,6 +14,12 @@ namespace NeilsonCodeChallangeJarre
             _random = random;
         }
 
+        /// <summary>
+        /// Generates a randomly ordered list of numbers
+        /// </summary>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public List<int> Generate(int min, int max)
         {
             var list = new List<int>();
